@@ -5,6 +5,7 @@ resource "google_compute_instance" "Instance" {
 	boot_disk {
 		device_name = "persistent-disk-0"
 		auto_delete = true
+		size = 32
 		initialize_params {
 			image = data.google_compute_image.Image.id
 		}
