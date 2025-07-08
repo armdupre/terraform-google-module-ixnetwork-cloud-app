@@ -1,7 +1,7 @@
 output "Eth0PublicIpAddress" {
 	description = "Public ip address resource associated with the first network interface"
 	value = {
-		"address" : google_compute_address.Eth0PublicIpAddress.address
+		"address" : "https://${google_compute_address.Eth0PublicIpAddress.address}"
 		"address_type" : google_compute_address.Eth0PublicIpAddress.address_type
 	}
 }
