@@ -19,6 +19,6 @@ output "Instance" {
 	description = "Instance resource associated with the virtual machine"
 	value = {
 		"machine_type" : google_compute_instance.Instance.machine_type
-		"network_ip" : google_compute_instance.Instance.network_interface.0.network_ip 
+		"network_ip" : google_compute_instance.Instance.network_interface.0.network_ip
 	}
 }
