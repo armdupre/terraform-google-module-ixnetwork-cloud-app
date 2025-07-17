@@ -60,12 +60,16 @@ variable "InstanceId" {
 }
 
 variable "MachineType" {
-	default = "c2-standard-16"
+	default = "c4-standard-8"
 	description = "Designation for set of resources available to VM"
 	type = string
 	validation {
-		condition = can(regex("c2-standard-16", var.MachineType))
-		error_message = "MachineType must be one of (c2-standard-16) types."
+		condition = contains([	"c4-standard-8"
+							], var.MachineType)
+		error_message = <<EOF
+MachineType must be one of the following types:
+	c4-standard-8
+		EOF
 	}
 }
 
