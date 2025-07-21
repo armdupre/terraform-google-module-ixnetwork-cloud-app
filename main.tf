@@ -36,6 +36,9 @@ resource "google_compute_instance" "Instance" {
 			ip_cidr_range = local.Eth2PrivateIpAliases
 		}
 	}
+	network_performance_config {
+		total_egress_bandwidth_tier = local.TotalEgressBandwidthTier
+	}
 	metadata = {
 		Owner = local.UserEmailTag
 		Project = local.UserProjectTag

@@ -64,11 +64,10 @@ variable "MachineType" {
 	description = "Designation for set of resources available to VM"
 	type = string
 	validation {
-		condition = contains([	"c4-standard-8"
-							], var.MachineType)
+		condition = contains([ "c4-standard-8", "c4-standard-48", "c4-standard-96", "c4-standard-192" ], var.MachineType)
 		error_message = <<EOF
 MachineType must be one of the following types:
-	c4-standard-8
+	c4-standard-8, c4-standard-48, c4-standard-96, c4-standard-192
 		EOF
 	}
 }
@@ -109,6 +108,19 @@ variable "Tag" {
 	default = "ixnetwork"
 	description = "App ID tag of application using the deployment"
 	type = string
+}
+
+variable "TotalEgressBandwidthTier" {
+	default = "DEFAULT"
+	description = "Level of egress bandwidth tier associated with this VM instance"
+	type = string
+	validation {
+		condition = contains([ "DEFAULT", "TIER_1" ], var.TotalEgressBandwidthTier)
+		error_message = <<EOF
+TotalEgressBandwidthTier must be one of the following values:
+	DEFAULT, TIER_1
+		EOF
+	}
 }
 
 variable "UserEmailTag" {

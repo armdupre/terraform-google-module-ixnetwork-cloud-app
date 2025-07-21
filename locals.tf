@@ -22,6 +22,7 @@ locals {
 	SerialPortEnable = true
 	SleepDelay = var.SleepDelay
 	Tag = var.Tag
+	TotalEgressBandwidthTier = var.TotalEgressBandwidthTier
 	UserEmailTag = var.UserEmailTag
 	UserLoginTag = var.UserLoginTag
 	UserProjectTag = var.UserProjectTag
